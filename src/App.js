@@ -1,5 +1,5 @@
 import React from 'react';
-import CSVReader from 'react-csv-reader';
+// import CSVReader from 'react-csv-reader';
 import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/pages/Home';
