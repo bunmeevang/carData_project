@@ -1,5 +1,5 @@
 import React from 'react'
-import './DataTable.css'
+import './PaginationTable.css'
 
 export const GlobalFilter = ({ filter, setFilter}) => {
     return(

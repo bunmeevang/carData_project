@@ -1,10 +1,11 @@
 import React from 'react';
-import { PerformanceTable } from '../PerformanceTable';
+import { PaginationTable } from '../PaginationTable';
 
 function AllData() {
     return (
         <div>
-            <PerformanceTable />
+            {/* <DataTable /> */}
+            <PaginationTable />
         </div>
     )
 }

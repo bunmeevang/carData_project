@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 // import "./index.css";
 import Data from "../csvjson.json"
-import { COLUMNS } from './Columns'
+import { PERFCOLUMNS } from './PerfColumns'
 import { useTable, usePagination, useGlobalFilter } from "react-table";
 import './PaginationTable.css'
 import { GlobalFilter } from "./GlobalFilter";
 
-export const PaginationTable = () => {
+export const PerformanceTable = () => {
     
-    const columns = useMemo(() => COLUMNS, [])
+    const columns = useMemo(() => PERFCOLUMNS, [])
     const data = useMemo(() => Data, []) 
 
     const { 
