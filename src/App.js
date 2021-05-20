@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState }from 'react';
 // import CSVReader from 'react-csv-reader';
 import Navbar from './components/Navbar';
 import './App.css';
@@ -6,7 +6,7 @@ import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AllData from './components/pages/AllData';
 import Products from './components/pages/Products';
-import SignUp from './components/pages/SignUp';
+import CreateUser from './components/pages/CreateUser';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/alldata' component={AllData} />
           <Route path='/products' component={Products} />
-          <Route path='/sign-up' component={SignUp} />
+          <Route path='/sign-up' component={CreateUser} />
         </Switch>
       </Router>
     </>

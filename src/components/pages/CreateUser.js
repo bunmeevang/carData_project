@@ -53,7 +53,7 @@ export default function CreateUser(props) {
 		<div className="newUser">
 			<h1>This is the {props.page} page</h1>
 			<form onSubmit={e => {createNewUser(e)}}>
-				<h2>Create New User</h2>
+				<h2>Sign Up</h2>
 				<span>Username: </span>
 				<input
 					onChange={e => {

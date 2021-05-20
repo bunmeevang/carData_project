@@ -4,7 +4,6 @@ import { PaginationTable } from '../PaginationTable';
 function AllData() {
     return (
         <div>
-            {/* <DataTable /> */}
             <PaginationTable />
         </div>
     )
