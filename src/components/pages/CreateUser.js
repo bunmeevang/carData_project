@@ -15,12 +15,7 @@ export default function CreateUser(props) {
 
 	const createNewUser = async (e) => {
         e.preventDefault();
-		setUserInfo({
-			username: username,
-    		password: password,
-			bio: "empty",
-			cars: []
-		})
+		console.log(userInfo);
         try {
             const response = await fetch(
                 `http://localhost:9000/register`,
@@ -35,39 +30,34 @@ export default function CreateUser(props) {
             const data = await response.json();
             console.log(userInfo)
             console.log(data)
-            setUserInfo({
-				username: "",
-				password: "",
-				bio: "empty",
-				cars: []
-			});
         } catch (error) {
             console.error(error);
         }
     }
-	const handleChange = () => {
-
+	const handleChange = (e) => {
+		setUserInfo({...userInfo, [e.target.name]: e.target.value})
+		console.log(userInfo)
 	}
 
 	return (
 		<div className="newUser">
-			<h1>This is the {props.page} page</h1>
+			<h1>The {props.page} page</h1>
 			<form onSubmit={e => {createNewUser(e)}}>
 				<h2>Sign Up</h2>
 				<span>Username: </span>
 				<input
-					onChange={e => {
-						setUsername(e.target.value);
-					}}
+					name="username"
+					onChange={ handleChange
+					}
 					type="text"
 					placeholder="username"
 				/>
 				<br />
 				<span>Password: </span>
 				<input
-					onChange={e => {
-						setPassword(e.target.value);
-					}}
+					name="password"
+					onChange={handleChange
+					}
 					type={showPW ? 'text' : 'password'}
 					placeholder="password"
 				/>

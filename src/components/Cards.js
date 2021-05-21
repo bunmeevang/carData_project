@@ -19,7 +19,7 @@ function Cards() {
               src='images/img-2.jpg'
               text='Are you ready for your next vehicle purchase?'
               label='Buying'
-              path='/services'
+              // path='/services'
             />
           </ul>
           <ul className='cards__items'>
@@ -33,7 +33,7 @@ function Cards() {
               src='images/img-4.jpg'
               text='More vehicle data.'
               label='Tech'
-              path='/services'
+              // path='/services'
             />
             <CardItem
               src='images/img-8.jpg'

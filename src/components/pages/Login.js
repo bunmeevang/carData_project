@@ -1,12 +1,12 @@
 import React, { useState, useContext} from 'react';
 import { Link, useHistory} from 'react-router-dom';
-import {Datacontext} from "../App"
+import {DataContext} from "../../App"
 
 export default function Login(props) {
 	const history = useHistory();
-	const {isLoggedIn, setIsLoggedIn} = useContext(Datacontext)
+	const {isLoggedIn, setIsLoggedIn} = useContext(DataContext)
 	const [showPW, setShowPW] = useState(false);
-	const [notALoginAccount, setNotALoginAccount] = useState("")
+	const [notAccount, setNotAccount] = useState("")
 	const [loginForm, setLoginForm] = useState({
 		username: "",
 		password: ""
@@ -15,12 +15,12 @@ export default function Login(props) {
 	const checkUser = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await fetch("http://localhost:9000/users")
+			const response = await fetch("http://localhost:9000/user")
 			const data = await response.json();
 			console.log(data)
 			const theUser = data.filter(users => users.username === loginForm.username)
 			console.log(theUser)
-			theUser[0] ? handleLogin(e) : setNotALoginAccount("The User Name or Password is incorrect.")
+			theUser[0] ? handleLogin(e) : setNotAccount("Incorrect username or password.")
 
 		} catch (error) {
 			console.error(error);
@@ -46,7 +46,7 @@ export default function Login(props) {
 			window.localStorage.setItem("id", data.id)
 			setIsLoggedIn(true);
 			console.log(window.localStorage)
-			history.push("/")
+			history.push("/user")
 			}
 		} catch (error) {
 			console.error(error);
@@ -64,7 +64,7 @@ export default function Login(props) {
 			<form onSubmit={checkUser}>
 				<h2>Login</h2>
 				<div>
-				{notALoginAccount}
+				{notAccount}
 				</div>
 				<span>Username: </span>
 				<input
@@ -86,7 +86,7 @@ export default function Login(props) {
 				<input type="submit" />
 			</form>
 			<p>Don't have an account? </p>
-			<Link to="/createUser">Create new user?</Link>
+			<Link to="/sign-up">Create new user?</Link>
 		</div>
 	);
 }
