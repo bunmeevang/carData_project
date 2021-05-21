@@ -18,4 +18,5 @@ This is a Website I made for car enthusiasts. The Website have all kinds of data
 2. Fix up the css on users page.
 3. Have user be able to post up their own car and photos.
 4. Want to have a page for users to buy and sell cars.
-5. Have images available for the car.
+5. Have images available for all car.
+6. Would love to be able to get prices for all the cars.
