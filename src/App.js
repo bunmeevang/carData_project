@@ -5,7 +5,7 @@ import './App.css';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AllData from './components/pages/AllData';
-import Products from './components/pages/Products';
+import PerformanceData from './components/pages/PerformanceData';
 import CreateUser from './components/pages/CreateUser';
 import UserProfile from './components/pages/UserProfile';
 import Login from './components/pages/Login';
@@ -30,10 +30,10 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/alldata' component={AllData} />
-          <Route path='/products' component={Products} />
           <Route path='/sign-up' component={CreateUser} />
           <Route path='/user' component={UserProfile} />
           <Route path='/login' component={Login} />
+          <Route path='/performance-data' component={PerformanceData} />
         </Switch>
       </Router>
       </DataContext.Provider>

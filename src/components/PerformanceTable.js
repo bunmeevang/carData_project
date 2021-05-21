@@ -31,7 +31,6 @@ export const PerformanceTable = () => {
         {
             columns,
             data,
-            // initialState: { pageIndex: 2 }
         },
         useGlobalFilter,
         usePagination

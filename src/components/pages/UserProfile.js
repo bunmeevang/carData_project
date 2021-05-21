@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import {useHistory} from "react-router-dom"
+import {useHistory, Link} from "react-router-dom"
+import styles from "./UserProfile.module.css";
 
 export default function UserProfile() {
     
@@ -82,27 +83,27 @@ export default function UserProfile() {
 
     console.log('bun')
     return(
-        <div> 
+        <div className={styles.box}> 
         {information ?
-            <div>
+            <div className={styles.border}>
                 <div>
                     <button onClick={(e) => setEditInfo(!editInfo)}>{editInfo? "Cancel" : "Edit"}</button>
                     {editInfo ? <button onClick={deleteUser}>Delete Account</button> : ""} 
                 </div>
                 {
                     editInfo? 
-                    <div>
+                    <div className={styles.editPage}>
                         <form onSubmit={editUserProfile}>
-                            User Name: <input type="text" name="username" onChange={handleChange} defaultValue={information.username}  /> 
-                            First Name: <input type="text" name="firstName" onChange={handleChange} defaultValue={information.firstName}  /> 
-                            Last Name: <input type="text" name="lastName" onChange={handleChange} defaultValue={information.lastName}  /> 
-                            <p>About Me:</p><textarea name="bio" onChange={handleChange} defaultValue={information.bio} /> 
+                            User Name: <input className={styles.textBox} type="text" name="username" onChange={handleChange} defaultValue={information.username}  /> <br></br>
+                            First Name: <input className={styles.textBox} type="text" name="firstName" onChange={handleChange} defaultValue={information.firstName}  /> <br></br>
+                            Last Name: <input className={styles.textBox} type="text" name="lastName" onChange={handleChange} defaultValue={information.lastName}  /> <br></br>
+                            <p className={styles.textBox}>About Me:</p><textarea name="bio" onChange={handleChange} defaultValue={information.bio} /><br></br> 
                             
                             <input type="submit" />
                         </form>
                     </div>
                     :
-                    <div>
+                    <div className={styles.profileBox}>
                         <p>User Name: {information.username}</p>
                         <p>First Name: {information.firstName}</p>
                         <p>Last Name: {information.lastName}</p>
@@ -112,7 +113,10 @@ export default function UserProfile() {
 
             </div>
         :
-        <h1>Profile!</h1>}
+        <h1><Link
+            to='/sign-up'
+            >Sign up to view Profile.</Link>
+        </h1>}
         </div>
     )
 

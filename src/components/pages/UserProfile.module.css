@@ -1,0 +1,49 @@
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -90px 50px;
+    text-align: center;
+}
+
+.border {
+    background-color: white;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 400px;
+	max-width: 100%;
+	min-height: 300px;
+}
+
+.profileBox {
+    margin-top: 50px;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.editPage{
+    margin-top: 50px;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+    text-align: center;
+}
+
+.textBox {
+    margin-top: 5px;
+    /* border: 1px solid black; */
+    margin-right: 15px;
+    font-size: 15px;
+    transform: translate(42px);
+    margin-right: 0;
+    width: 150px;
+    /* display: inline-block; */
+    /* float: right; */
+}

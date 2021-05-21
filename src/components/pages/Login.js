@@ -1,11 +1,12 @@
 import React, { useState, useContext} from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import {DataContext} from "../../App"
+import styles from "./Login.module.css";
 
 export default function Login(props) {
 	const history = useHistory();
 	const {isLoggedIn, setIsLoggedIn} = useContext(DataContext)
-	const [showPW, setShowPW] = useState(false);
+	const [showPassword, setShowPassword] = useState(false);
 	const [notAccount, setNotAccount] = useState("")
 	const [loginForm, setLoginForm] = useState({
 		username: "",
@@ -59,34 +60,34 @@ export default function Login(props) {
 	};
 
 	return (
-		<div className="Login">
-			<h1>This is the {props.page} page</h1>
+		<div className={styles.body}>
+			<div className={styles.border}>
 			<form onSubmit={checkUser}>
-				<h2>Login</h2>
+			<div className={styles.innerBox}>
+				<h2 className={styles.login}>Sign In</h2>
 				<div>
 				{notAccount}
 				</div>
-				<span>Username: </span>
-				<input
+				<input className={styles.input}
 					onChange={handleLoginChange}
 					type="text"
 					placeholder="username"
 					name="username"
-				/>
+					/>
 				<br />
-				<span>Password: </span>
-				<input
+				<input className={styles.input}
 					onChange={handleLoginChange}
-					type={showPW ? 'text' : 'password'}
+					type={showPassword ? 'text' : 'password'}
 					placeholder="password"
 					name="password"
-				/>
-				<p onClick={() => setShowPW(!showPW)}>Show Password</p>
+					/>
 				<br />
 				<input type="submit" />
+				</div>
 			</form>
-			<p>Don't have an account? </p>
-			<Link to="/sign-up">Create new user?</Link>
+			<p>Need to make an account? </p>
+			<Link to="/sign-up">Sign up!</Link>
+		</div>
 		</div>
 	);
 }

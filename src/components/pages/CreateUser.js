@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
+import styles from "./Login.module.css";
 
 export default function CreateUser(props) {
-	const [showPW, setShowPW] = useState(false);
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
+	const history = useHistory();
+	const [showPassword, setShowPassword] = useState(false);
+	// const [username, setUsername] = useState('');
+	// const [password, setPassword] = useState('');
 	const [userInfo, setUserInfo] = useState(
 		{
 			username: "",
@@ -30,6 +33,7 @@ export default function CreateUser(props) {
             const data = await response.json();
             console.log(userInfo)
             console.log(data)
+			history.push("/login")
         } catch (error) {
             console.error(error);
         }
@@ -40,12 +44,12 @@ export default function CreateUser(props) {
 	}
 
 	return (
-		<div className="newUser">
-			<h1>The {props.page} page</h1>
+		<div className={styles.body}>
+			<div className={styles.border}>
 			<form onSubmit={e => {createNewUser(e)}}>
+			<div className={styles.innerBox}>
 				<h2>Sign Up</h2>
-				<span>Username: </span>
-				<input
+				<input className={styles.input}
 					name="username"
 					onChange={ handleChange
 					}
@@ -53,18 +57,18 @@ export default function CreateUser(props) {
 					placeholder="username"
 				/>
 				<br />
-				<span>Password: </span>
-				<input
+				<input className={styles.input}
 					name="password"
 					onChange={handleChange
 					}
-					type={showPW ? 'text' : 'password'}
+					type={showPassword ? 'text' : 'password'}
 					placeholder="password"
 				/>
-				<p onClick={() => setShowPW(!showPW)}>Show Password</p>
 				<br />
 				<input type="submit" />
+				</div>
 			</form>
+		</div>
 		</div>
 	);
 }
